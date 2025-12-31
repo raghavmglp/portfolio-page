@@ -10,6 +10,28 @@ const BlogPage: React.FC = () => {
   const { data: posts, isLoading, error } = usePosts();
   const setCurrentPost = useStore((state) => state.setCurrentPost);
   const navigate = useNavigate();
+  const WRITING_TAGS = ["essay", "poetry", "story"];
+  const REVIEW_TAGS = ["review"];
+  const FEATURED_TAGS = [...WRITING_TAGS, ...REVIEW_TAGS];
+
+  const hasTag = (post: BlogPost, tagsToCheck: string[]) =>
+    post.tags.some((tag) => tagsToCheck.includes(tag.toLowerCase()));
+
+  const featuredPost = posts?.find((post) => hasTag(post, FEATURED_TAGS));
+
+  const featured = featuredPost ? [featuredPost] : [];
+
+  const latestWritings = posts
+    ?.filter(
+      (post) => post.id !== featuredPost?.id && hasTag(post, WRITING_TAGS)
+    )
+    .slice(0, 4);
+
+  const latestReviews = posts
+    ?.filter(
+      (post) => post.id !== featuredPost?.id && hasTag(post, REVIEW_TAGS)
+    )
+    .slice(0, 4);
 
   if (isLoading) return <div>Loading posts...</div>;
   if (error instanceof Error) return <div>Error: {error.message}</div>;
@@ -21,18 +43,12 @@ const BlogPage: React.FC = () => {
     navigate(`/post/${postId}`);
   };
 
-  const featured = posts[0] ? [posts[0]] : [];
-  const latestWritings = posts.slice(1, 4);
-  const latestReviews = posts.slice(4, 7);
-
-  // Added 'h-fit': Prevents the column from stretching to match the tallest column.
-  // The bottom border will now sit directly under the last card's content.
-  const columnClass = "flex flex-col h-fit divide-y divide-border border-y border-border";
+  const columnClass =
+    "flex flex-col h-fit divide-y divide-border border-y border-border";
 
   return (
     <div>
       <div className="flex flex-col lg:flex-row gap-4 justify-center">
-        
         {/* Featured - 50% width */}
         <div className={`lg:w-1/2 ${columnClass}`}>
           {featured.map((post) => (
@@ -47,22 +63,22 @@ const BlogPage: React.FC = () => {
 
         {/* Latest Writings - 25% width */}
         <div className={`lg:w-1/4 ${columnClass}`}>
-          {latestWritings.map((post) => (
-            <PostCard 
-              key={post.id} 
-              post={post} 
-              onClick={() => handleClick(post.id)} 
+          {latestWritings?.map((post) => (
+            <PostCard
+              key={post.id}
+              post={post}
+              onClick={() => handleClick(post.id)}
             />
           ))}
         </div>
 
         {/* Latest Reviews - 25% width */}
         <div className={`lg:w-1/4 ${columnClass}`}>
-          {latestReviews.map((post) => (
-            <PostCard 
-              key={post.id} 
-              post={post} 
-              onClick={() => handleClick(post.id)} 
+          {latestReviews?.map((post) => (
+            <PostCard
+              key={post.id}
+              post={post}
+              onClick={() => handleClick(post.id)}
             />
           ))}
         </div>

@@ -10,8 +10,9 @@ function Header() {
     <div className="flex items-center justify-between p-4 max-w-5xl mx-auto">
       <div className="flex items-center gap-2">
         <Text
-          className="cursor-pointer font-bold"
+          className="cursor-pointer font-bold text-[20px]"
           onClick={() => navigate("/")}
+          
         >
           Raghav Mangalapalli
         </Text>
@@ -23,7 +24,7 @@ function Header() {
           .map(([key, value]) => (
             <button
               key={key}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className="text-[20px] font-medium text-muted-foreground hover:text-primary transition-colors"
               onClick={() => navigate("/blog")}
             >
               {value}

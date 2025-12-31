@@ -21,9 +21,9 @@ import { contactInfo } from "@/constants/contact";
 //   return (
 //     <span
 //       className={`
-//         ${colorClass} 
-//         px-0.5 py-0.5 
-//         font-medium 
+//         ${colorClass}
+//         px-0.5 py-0.5
+//         font-medium
 //         inline-block mx-0.5 my-0.5 leading-none
 //       `}
 //     >
@@ -34,7 +34,7 @@ import { contactInfo } from "@/constants/contact";
 
 function Home() {
   return (
-    <div className="flex flex-col min-h-[80vh] space-y-4 leading-relaxed">
+    <div className="flex flex-col min-h-[90vh] space-y-4 leading-relaxed">
       {/* Content wrapper */}
       <div className="space-y-4">
         <Text className="text-[18px]">Hi! I'm Raghav.</Text>
@@ -43,9 +43,9 @@ function Home() {
           I'm currently pursuing a Master's Degree in Computer Science at the
           Technical University of Eindhoven. I'm interested in the intersection
           of systems architecture and machine learning. I have 2 years of
-          professional experience in software engineering across a variety of
-          technologies. My undergraduate studies were at the Birla Institute of
-          Technology and Science (BITS), Pilani.
+          professional experience - I was a software engineer at Eltropy and an
+          intern at Amazon. My undergraduate studies were at the Birla Institute
+          of Technology and Science (BITS), Pilani.
         </Text>
 
         <Text className="text-[18px]">
@@ -57,7 +57,9 @@ function Home() {
         </Text>
       </div>
 
-      <div className="flex justify-center items-center mt-4 pt-12 pb-4">
+      {/* Footer Section */}
+      {/* Changed mt-4 to mt-auto to push it to the bottom */}
+      <div className="flex justify-center items-center mt-auto pt-12 pb-4">
         <div className="flex gap-4">
           {contactInfo.map((contact) => (
             <a
@@ -89,3 +91,4 @@ function Home() {
 }
 
 export default Home;
+

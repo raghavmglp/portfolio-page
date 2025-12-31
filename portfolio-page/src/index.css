@@ -46,72 +46,96 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+
+  /* LIGHT MODE: Warm Cream / Paper */
+  --background: oklch(0.98 0.015 85); /* Warm Cream */
+  --foreground: oklch(0.2 0.03 85); /* Dark Warm Brown/Grey text */
+
+  --card: oklch(1 0 0); /* Pure white cards for contrast */
+  --card-foreground: oklch(0.2 0.03 85);
+
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --popover-foreground: oklch(0.2 0.03 85);
+
+  --primary: oklch(0.2 0.03 85); /* Dark Brown buttons */
+  --primary-foreground: oklch(0.98 0.015 85);
+
+  --secondary: oklch(0.95 0.01 85); /* Light Beige */
+  --secondary-foreground: oklch(0.2 0.03 85);
+
+  --muted: oklch(0.95 0.01 85);
+  --muted-foreground: oklch(0.5 0.03 85);
+
+  --accent: oklch(0.95 0.01 85);
+  --accent-foreground: oklch(0.2 0.03 85);
+
+  --destructive: oklch(0.6 0.15 25);
+  --border: oklch(0.92 0.01 85); /* Beige borders */
+  --input: oklch(0.92 0.01 85);
+  --ring: oklch(0.2 0.03 85);
+
+  /* Earthy Charts */
+  --chart-1: oklch(0.65 0.15 40); /* Terracotta */
+  --chart-2: oklch(0.6 0.12 180); /* Sage */
+  --chart-3: oklch(0.4 0.08 85); /* Deep Brown */
+  --chart-4: oklch(0.8 0.15 85); /* Mustard */
+  --chart-5: oklch(0.75 0.15 70); /* Olive */
+
+  --sidebar: oklch(0.98 0.015 85);
+  --sidebar-foreground: oklch(0.2 0.03 85);
+  --sidebar-primary: oklch(0.2 0.03 85);
+  --sidebar-primary-foreground: oklch(0.98 0.015 85);
+  --sidebar-accent: oklch(0.95 0.01 85);
+  --sidebar-accent-foreground: oklch(0.2 0.03 85);
+  --sidebar-border: oklch(0.92 0.01 85);
+  --sidebar-ring: oklch(0.2 0.03 85);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
+  /* DARK MODE: Matte Stone Grey (Not Black) */
+  --background: oklch(0.21 0.02 85); /* Deep Warm Grey */
+  --foreground: oklch(0.98 0.01 85); /* Off-white text */
+
+  --card: oklch(0.25 0.02 85); /* Lighter Grey for cards */
+  --card-foreground: oklch(0.98 0.01 85);
+
+  --popover: oklch(0.25 0.02 85);
+  --popover-foreground: oklch(0.98 0.01 85);
+
+  --primary: oklch(0.98 0.01 85); /* White/Cream buttons */
+  --primary-foreground: oklch(0.21 0.02 85);
+
+  --secondary: oklch(0.3 0.02 85); /* Lighter stone for secondary */
+  --secondary-foreground: oklch(0.98 0.01 85);
+
+  --muted: oklch(0.3 0.02 85);
+  --muted-foreground: oklch(0.7 0.02 85);
+
+  --accent: oklch(0.3 0.02 85);
+  --accent-foreground: oklch(0.98 0.01 85);
+
+  --destructive: oklch(0.4 0.15 25);
+
+  --border: oklch(0.3 0.02 85); /* Subtle grey borders */
+  --input: oklch(0.3 0.02 85);
+  --ring: oklch(0.8 0.05 85);
+
+  --chart-1: oklch(0.55 0.2 40);
+  --chart-2: oklch(0.5 0.15 180);
+  --chart-3: oklch(0.7 0.15 70);
+  --chart-4: oklch(0.6 0.2 300);
+  --chart-5: oklch(0.65 0.25 15);
+
+  --sidebar: oklch(0.21 0.02 85);
+  --sidebar-foreground: oklch(0.98 0.01 85);
   --sidebar-primary: oklch(0.488 0.243 264.376);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar-accent: oklch(0.3 0.02 85);
+  --sidebar-accent-foreground: oklch(0.98 0.01 85);
+  --sidebar-border: oklch(0.3 0.02 85);
+  --sidebar-ring: oklch(0.8 0.05 85);
 }
+
 
 @layer base {
   * {
@@ -124,118 +148,134 @@
 
 /* --- 100: XXThin --- */
 @font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayXXThin.ttf') format('truetype');
+  font-family: "Neue Haas Grotesk Display";
+  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayXXThin.ttf")
+    format("truetype");
   font-weight: 100;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayXXThinItalic.ttf') format('truetype');
+  font-family: "Neue Haas Grotesk Display";
+  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayXXThinItalic.ttf")
+    format("truetype");
   font-weight: 100;
   font-style: italic;
 }
 
 /* --- 200: XThin --- */
 @font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayXThin.ttf') format('truetype');
+  font-family: "Neue Haas Grotesk Display";
+  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayXThin.ttf")
+    format("truetype");
   font-weight: 200;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayXThinItalic.ttf') format('truetype');
+  font-family: "Neue Haas Grotesk Display";
+  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayXThinItalic.ttf")
+    format("truetype");
   font-weight: 200;
   font-style: italic;
 }
 
 /* --- 300: Thin --- */
 @font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayThin.ttf') format('truetype');
+  font-family: "Neue Haas Grotesk Display";
+  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayThin.ttf")
+    format("truetype");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayThinItalic.ttf') format('truetype');
+  font-family: "Neue Haas Grotesk Display";
+  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayThinItalic.ttf")
+    format("truetype");
   font-weight: 300;
   font-style: italic;
 }
 
 /* --- 350: Light (Custom Weight) --- */
 @font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayLight.ttf') format('truetype');
+  font-family: "Neue Haas Grotesk Display";
+  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayLight.ttf")
+    format("truetype");
   font-weight: 350;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayLightItalic.ttf') format('truetype');
+  font-family: "Neue Haas Grotesk Display";
+  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayLightItalic.ttf")
+    format("truetype");
   font-weight: 350;
   font-style: italic;
 }
 
 /* --- 400: Roman (Regular) --- */
 @font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayRoman.ttf') format('truetype');
+  font-family: "Neue Haas Grotesk Display";
+  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayRoman.ttf")
+    format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayRomanItalic.ttf') format('truetype');
+  font-family: "Neue Haas Grotesk Display";
+  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayRomanItalic.ttf")
+    format("truetype");
   font-weight: 400;
   font-style: italic;
 }
 
 /* --- 500: Medium --- */
 @font-face {
-  font-family: 'Neue Haas Grotesk Display';
+  font-family: "Neue Haas Grotesk Display";
   /* Keeping filename as "Mediu.ttf" based on your list */
-  src: url('./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayMediu.ttf') format('truetype');
+  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayMediu.ttf")
+    format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayMediumItalic.ttf') format('truetype');
+  font-family: "Neue Haas Grotesk Display";
+  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayMediumItalic.ttf")
+    format("truetype");
   font-weight: 500;
   font-style: italic;
 }
 
 /* --- 700: Bold --- */
 @font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayBold.ttf') format('truetype');
+  font-family: "Neue Haas Grotesk Display";
+  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayBold.ttf")
+    format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayBoldItalic.ttf') format('truetype');
+  font-family: "Neue Haas Grotesk Display";
+  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayBoldItalic.ttf")
+    format("truetype");
   font-weight: 700;
   font-style: italic;
 }
 
 /* --- 900: Black --- */
 @font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayBlack.ttf') format('truetype');
+  font-family: "Neue Haas Grotesk Display";
+  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayBlack.ttf")
+    format("truetype");
   font-weight: 900;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Neue Haas Grotesk Display';
-  src: url('./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayBlackItalic.ttf') format('truetype');
+  font-family: "Neue Haas Grotesk Display";
+  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayBlackItalic.ttf")
+    format("truetype");
   font-weight: 900;
   font-style: italic;
 }
 
 body {
-  font-family: 'Neue Haas Grotesk Display', Helvetica, Arial, sans-serif;
+  font-family: "Neue Haas Grotesk Display", Helvetica, Arial, sans-serif;
   font-weight: 400;
 }
