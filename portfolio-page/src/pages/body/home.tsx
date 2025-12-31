@@ -1,37 +1,36 @@
-import React, { useMemo } from "react";
 import { Text } from "@/components/ui/typography";
 import { contactInfo } from "@/constants/contact";
 
-const PASTEL_COLORS = [
-  "dark:text-rose-100 text-rose-900", // Soft Pink
-  "dark:text-sky-100 text-sky-900", // Airy Blue
-  "dark:text-emerald-100 text-emerald-900", // Fresh Green
-  "dark:text-violet-100 text-violet-900", // Calm Purple
-  "dark:text-amber-100 text-amber-900", // Warm Gold/Orange
-  "dark:text-teal-100 text-teal-900", // Ocean Blue/Green
-  "dark:text-fuchsia-100 text-fuchsia-900", // Vibrant Pink/Purple
-];
+// const PASTEL_COLORS = [
+//   "dark:text-rose-100 text-rose-900", // Soft Pink
+//   "dark:text-sky-100 text-sky-900", // Airy Blue
+//   "dark:text-emerald-100 text-emerald-900", // Fresh Green
+//   "dark:text-violet-100 text-violet-900", // Calm Purple
+//   "dark:text-amber-100 text-amber-900", // Warm Gold/Orange
+//   "dark:text-teal-100 text-teal-900", // Ocean Blue/Green
+//   "dark:text-fuchsia-100 text-fuchsia-900", // Vibrant Pink/Purple
+// ];
 
 // 2. The Random Highlighter
-const Highlight = ({ children }: { children: React.ReactNode }) => {
-  const colorClass = useMemo(() => {
-    // Selects a random color on mount/refresh
-    return PASTEL_COLORS[Math.floor(Math.random() * PASTEL_COLORS.length)];
-  }, []);
+// const Highlight = ({ children }: { children: React.ReactNode }) => {
+//   const colorClass = useMemo(() => {
+//     // Selects a random color on mount/refresh
+//     return PASTEL_COLORS[Math.floor(Math.random() * PASTEL_COLORS.length)];
+//   }, []);
 
-  return (
-    <span
-      className={`
-        ${colorClass} 
-        px-0.5 py-0.5 
-        font-medium 
-        inline-block mx-0.5 my-0.5 leading-none
-      `}
-    >
-      {children}
-    </span>
-  );
-};
+//   return (
+//     <span
+//       className={`
+//         ${colorClass} 
+//         px-0.5 py-0.5 
+//         font-medium 
+//         inline-block mx-0.5 my-0.5 leading-none
+//       `}
+//     >
+//       {children}
+//     </span>
+//   );
+// };
 
 function Home() {
   return (
