@@ -1,17 +1,17 @@
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Text } from "@/components/ui/typography";
 import { tabs } from "@/constants/tabs";
-import { useStore } from "@/store/useStore";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
-  const setCurrentTab = useStore((s) => s.setCurrentTab);
+  const navigate = useNavigate();
 
   return (
-    <div className="flex items-center justify-between p-4 max-w-3xl mx-auto">
+    <div className="flex items-center justify-between p-4 max-w-5xl mx-auto">
       <div className="flex items-center gap-2">
         <Text
           className="cursor-pointer font-bold"
-          onClick={() => setCurrentTab("/home")}
+          onClick={() => navigate("/")}
         >
           Raghav Mangalapalli
         </Text>
@@ -24,7 +24,7 @@ function Header() {
             <button
               key={key}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-              onClick={() => setCurrentTab(value)}
+              onClick={() => navigate("/blog")}
             >
               {value}
             </button>

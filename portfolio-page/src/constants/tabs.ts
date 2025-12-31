@@ -1,6 +1,5 @@
 export const tabs = {
   HOME: "/home",
-  CV: "/cv",
+  // CV: "/cv",
   BLOG: "/blog",
-  CONTACT: "/contact",
 };
