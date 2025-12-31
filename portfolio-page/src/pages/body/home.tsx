@@ -59,8 +59,7 @@ function Home() {
         page.
       </Text>
 
-      {/* Footer Section - Reverted to your original code */}
-      <div className="flex absolute bottom-4 left-0 right-0 justify-center items-center">
+      <div className="flex absolute bottom-4 left-0 right-0 justify-center items-center mt-8">
         <div className="flex gap-4">
           {contactInfo.map((contact) => (
             <a
