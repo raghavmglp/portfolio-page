@@ -1,65 +1,42 @@
-import { Text } from "@/components/ui/typography";
+import DraggablePhoto from "@/components/ui/dragablePhoto";
 import { contactInfo } from "@/constants/contact";
-
-// const PASTEL_COLORS = [
-//   "dark:text-rose-100 text-rose-900", // Soft Pink
-//   "dark:text-sky-100 text-sky-900", // Airy Blue
-//   "dark:text-emerald-100 text-emerald-900", // Fresh Green
-//   "dark:text-violet-100 text-violet-900", // Calm Purple
-//   "dark:text-amber-100 text-amber-900", // Warm Gold/Orange
-//   "dark:text-teal-100 text-teal-900", // Ocean Blue/Green
-//   "dark:text-fuchsia-100 text-fuchsia-900", // Vibrant Pink/Purple
-// ];
-
-// 2. The Random Highlighter
-// const Highlight = ({ children }: { children: React.ReactNode }) => {
-//   const colorClass = useMemo(() => {
-//     // Selects a random color on mount/refresh
-//     return PASTEL_COLORS[Math.floor(Math.random() * PASTEL_COLORS.length)];
-//   }, []);
-
-//   return (
-//     <span
-//       className={`
-//         ${colorClass}
-//         px-0.5 py-0.5
-//         font-medium
-//         inline-block mx-0.5 my-0.5 leading-none
-//       `}
-//     >
-//       {children}
-//     </span>
-//   );
-// };
 
 function Home() {
   return (
-    <div className="flex flex-col min-h-[90vh] space-y-4 leading-relaxed">
-      {/* Content wrapper */}
-      <div className="space-y-4">
-        <Text className="text-[18px]">Hi! I'm Raghav.</Text>
+    <div className="flex flex-col min-h-[90vh] leading-relaxed max-w-5xl mx-auto overflow-visible">
+        <div className="flex flex-col md:flex-row gap-10 items-center md:items-start overflow-visible">
+          <div className="w-full md:w-52 shrink-0 flex justify-center md:block overflow-visible">
+            <DraggablePhoto />
+          </div>
 
-        <Text className="text-[18px]">
-          I'm currently pursuing a Master's Degree in Computer Science at the
-          Technical University of Eindhoven. I'm interested in the intersection
-          of systems architecture and machine learning. I have 2 years of
-          professional experience - I was a software engineer at Eltropy and an
-          intern at Amazon. My undergraduate studies were at the Birla Institute
-          of Technology and Science (BITS), Pilani.
-        </Text>
+          <div className="flex-1 space-y-6 w-full text-center md:text-left">
+            <p className="text-[20px] font-medium text-foreground tracking-tight">
+              Hi! I'm Raghav.
+            </p>
 
-        <Text className="text-[18px]">
-          You can view some of my personal projects below. I also write from
-          time to time: if you're interested in reading some of my work, check
-          out the blog! I'm always looking for new opportunites! If you'd like
-          to get in touch with me, you can find my contact information at the
-          bottom of the page.
-        </Text>
-      </div>
+            <div className="space-y-5">
+              <p className="text-[18px] text-foreground/90">
+                I'm currently pursuing a Master's Degree in Computer Science at
+                the Technical University of Eindhoven. I'm interested in the
+                intersection of systems architecture and machine learning. I have
+                2 years of professional experience - I was a software engineer at
+                Eltropy and an intern at Amazon. My undergraduate studies were at
+                the Birla Institute of Technology and Science (BITS), Pilani.
+              </p>
 
-      {/* Footer Section */}
-      {/* Changed mt-4 to mt-auto to push it to the bottom */}
-      <div className="flex justify-center items-center mt-auto pt-12 pb-4">
+              <p className="text-[18px] text-foreground/90">
+                You can view some of my personal projects below. I also write from
+                time to time - if you're interested in reading some of my work,
+                check out the blog! I'm always looking for new opportunities. If
+                you'd like to get in touch with me, you can find my contact
+                information at the bottom of the page.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      {/* FOOTER SECTION */}
+      <div className="flex justify-center items-center mt-auto pt-24 pb-12">
         <div className="flex gap-4">
           {contactInfo.map((contact) => (
             <a
@@ -67,21 +44,11 @@ function Home() {
               href={contact.link}
               target="_blank"
               rel="noopener noreferrer"
-              className={`
-                group
-                w-10 h-10
-                ${contact.bg}
-                flex flex-col items-center justify-center
-                rounded-none
-                transition-colors duration-200
-                hover:bg-orange-500
-              `}
+              className="group flex items-center justify-center w-12 h-12 border border-border transition-all hover:bg-primary"
             >
-              <div className="flex justify-center">
-                <div className="text-zinc-700 group-hover:text-white transition">
-                  <contact.icon size={14} />
-                </div>
-              </div>
+              <span className="text-foreground group-hover:text-primary-foreground transition">
+                <contact.icon size={20} />
+              </span>
             </a>
           ))}
         </div>
@@ -91,4 +58,3 @@ function Home() {
 }
 
 export default Home;
-

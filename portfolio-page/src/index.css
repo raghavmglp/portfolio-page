@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -45,97 +46,90 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0rem; /* Cargo/Portfolio styles usually favor sharp corners */
 
-  /* LIGHT MODE: Warm Cream / Paper */
-  --background: oklch(0.98 0.015 85); /* Warm Cream */
-  --foreground: oklch(0.2 0.03 85); /* Dark Warm Brown/Grey text */
+  /* LIGHT MODE: Art Gallery White */
+  --background: oklch(1 0 0); /* Pure White */
+  --foreground: oklch(
+    0.18 0.01 20
+  ); /* Off-black/Ink (rgba(0,0,0,0.84) equivalent) */
 
-  --card: oklch(1 0 0); /* Pure white cards for contrast */
-  --card-foreground: oklch(0.2 0.03 85);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.01 20);
 
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.03 85);
+  --popover-foreground: oklch(0.18 0.01 20);
 
-  --primary: oklch(0.2 0.03 85); /* Dark Brown buttons */
-  --primary-foreground: oklch(0.98 0.015 85);
+  /* Primary: The "Bold Link" or "Solid Button" Look */
+  --primary: oklch(0.18 0.01 20);
+  --primary-foreground: oklch(1 0 0);
 
-  --secondary: oklch(0.95 0.01 85); /* Light Beige */
-  --secondary-foreground: oklch(0.2 0.03 85);
+  /* Secondary: Very light grey for subtle backgrounds */
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.18 0.01 20);
 
-  --muted: oklch(0.95 0.01 85);
-  --muted-foreground: oklch(0.5 0.03 85);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.5 0 0); /* Subtle metadata text */
 
-  --accent: oklch(0.95 0.01 85);
-  --accent-foreground: oklch(0.2 0.03 85);
+  --accent: oklch(0.95 0 0);
+  --accent-foreground: oklch(0.18 0.01 20);
 
-  --destructive: oklch(0.6 0.15 25);
-  --border: oklch(0.92 0.01 85); /* Beige borders */
-  --input: oklch(0.92 0.01 85);
-  --ring: oklch(0.2 0.03 85);
+  --destructive: oklch(0.5 0.15 25);
 
-  /* Earthy Charts */
-  --chart-1: oklch(0.65 0.15 40); /* Terracotta */
-  --chart-2: oklch(0.6 0.12 180); /* Sage */
-  --chart-3: oklch(0.4 0.08 85); /* Deep Brown */
-  --chart-4: oklch(0.8 0.15 85); /* Mustard */
-  --chart-5: oklch(0.75 0.15 70); /* Olive */
+  /* Borders in these styles are often either non-existent or very thin/light */
+  --border: oklch(0.9 0 0);
+  --input: oklch(0.9 0 0);
+  --ring: oklch(0.18 0.01 20);
 
-  --sidebar: oklch(0.98 0.015 85);
-  --sidebar-foreground: oklch(0.2 0.03 85);
-  --sidebar-primary: oklch(0.2 0.03 85);
-  --sidebar-primary-foreground: oklch(0.98 0.015 85);
-  --sidebar-accent: oklch(0.95 0.01 85);
-  --sidebar-accent-foreground: oklch(0.2 0.03 85);
-  --sidebar-border: oklch(0.92 0.01 85);
-  --sidebar-ring: oklch(0.2 0.03 85);
+  /* Minimalist Chart Palette */
+  --chart-1: oklch(0.4 0 0); /* Black */
+  --chart-2: oklch(0.6 0 0); /* Grey */
+  --chart-3: oklch(0.7 0.05 20); /* Warm Grey */
+  --chart-4: oklch(0.8 0 0); /* Light Grey */
+  --chart-5: oklch(0.9 0 0); /* Very Light Grey */
+
+  --sidebar: oklch(0.99 0 0);
+  --sidebar-foreground: oklch(0.18 0.01 20);
+  --sidebar-primary: oklch(0.18 0.01 20);
+  --sidebar-border: oklch(0.95 0 0);
 }
 
 .dark {
-  /* DARK MODE: Matte Stone Grey (Not Black) */
-  --background: oklch(0.21 0.02 85); /* Deep Warm Grey */
-  --foreground: oklch(0.98 0.01 85); /* Off-white text */
+  /* DARK MODE: Deep Charcoal/Zinc */
+  /* Moved away from 'stone' to 'zinc' for a more modern, less muddy feel */
+  --background: oklch(0.18 0.015 260);
+  --foreground: oklch(0.95 0.01 260);
 
-  --card: oklch(0.25 0.02 85); /* Lighter Grey for cards */
-  --card-foreground: oklch(0.98 0.01 85);
+  --card: oklch(0.22 0.015 260);
+  --card-foreground: oklch(0.95 0.01 260);
 
-  --popover: oklch(0.25 0.02 85);
-  --popover-foreground: oklch(0.98 0.01 85);
+  --popover: oklch(0.18 0.015 260);
+  --popover-foreground: oklch(0.95 0.01 260);
 
-  --primary: oklch(0.98 0.01 85); /* White/Cream buttons */
-  --primary-foreground: oklch(0.21 0.02 85);
+  /* Soft Silver/White Primary */
+  --primary: oklch(0.95 0.01 260);
+  --primary-foreground: oklch(0.18 0.015 260);
 
-  --secondary: oklch(0.3 0.02 85); /* Lighter stone for secondary */
-  --secondary-foreground: oklch(0.98 0.01 85);
+  --secondary: oklch(0.28 0.015 260);
+  --secondary-foreground: oklch(0.95 0.01 260);
 
-  --muted: oklch(0.3 0.02 85);
-  --muted-foreground: oklch(0.7 0.02 85);
+  --muted: oklch(0.28 0.015 260);
+  --muted-foreground: oklch(0.65 0.015 260);
 
-  --accent: oklch(0.3 0.02 85);
-  --accent-foreground: oklch(0.98 0.01 85);
+  --accent: oklch(0.28 0.015 260);
+  --accent-foreground: oklch(0.95 0.01 260);
 
-  --destructive: oklch(0.4 0.15 25);
+  --destructive: oklch(0.5 0.15 25);
 
-  --border: oklch(0.3 0.02 85); /* Subtle grey borders */
-  --input: oklch(0.3 0.02 85);
-  --ring: oklch(0.8 0.05 85);
+  --border: oklch(0.28 0.015 260);
+  --input: oklch(0.28 0.015 260);
+  --ring: oklch(0.7 0.015 260);
 
-  --chart-1: oklch(0.55 0.2 40);
-  --chart-2: oklch(0.5 0.15 180);
-  --chart-3: oklch(0.7 0.15 70);
-  --chart-4: oklch(0.6 0.2 300);
-  --chart-5: oklch(0.65 0.25 15);
-
-  --sidebar: oklch(0.21 0.02 85);
-  --sidebar-foreground: oklch(0.98 0.01 85);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.3 0.02 85);
-  --sidebar-accent-foreground: oklch(0.98 0.01 85);
-  --sidebar-border: oklch(0.3 0.02 85);
-  --sidebar-ring: oklch(0.8 0.05 85);
+  --sidebar: oklch(0.16 0.015 260);
+  --sidebar-foreground: oklch(0.95 0.01 260);
+  --sidebar-primary: oklch(0.95 0.01 260);
+  --sidebar-border: oklch(0.25 0.015 260);
 }
-
 
 @layer base {
   * {
@@ -273,6 +267,14 @@
     format("truetype");
   font-weight: 900;
   font-style: italic;
+}
+
+.font-neuton {
+  font-family: "Neuton", serif;
+}
+
+.prose {
+  font-size: 1.25rem;
 }
 
 body {
