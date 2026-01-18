@@ -14,9 +14,8 @@ const PostCard: React.FC<PostCardProps> = ({
   featured = false,
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
-  const [imageError, setImageError] = useState(false);
+  const [imageError] = useState(false);
 
-  // Hover logic: We use 'group' on the wrapper to trigger styles on children
   const cardWrapperClass =
     "group cursor-pointer flex p-2 transition-all duration-300 ease-in-out";
 
