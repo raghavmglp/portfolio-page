@@ -9,22 +9,22 @@ function Home() {
           <DraggablePhoto />
         </div>
 
-        <div className="flex-1 space-y-6 w-full text-center md:text-left">
+        <div className="flex-1 space-y-6 w-full text-center px-6 md:text-left">
           <p className="text-[20px] font-medium text-foreground tracking-tight">
             Hi! I'm Raghav.
           </p>
 
           <div className="space-y-5">
-            <p className="text-[18px] text-foreground/90">
+            <p className="text-[18px] text-foreground/90 text-left">
               I'm currently pursuing a Master's Degree in Computer Science at
               the Technical University of Eindhoven. I'm interested in the
               intersection of systems architecture and machine learning. I have
-              2 years of professional experience - I was a software engineer at
+              2 years of professional experience. I was a software engineer at
               Eltropy and an intern at Amazon. My undergraduate studies were at
               the Birla Institute of Technology and Science (BITS), Pilani.
             </p>
 
-            <p className="text-[18px] text-foreground/90">
+            <p className="text-[18px] text-foreground/90 text-left">
               You can view some of my personal projects in the projects section.
               I also write from time to time - if you're interested in reading
               some of my work, check out the blog! I'm always looking for new
