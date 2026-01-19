@@ -15,7 +15,7 @@ function Home() {
           </p>
 
           <div className="space-y-5">
-            <p className="text-[18px] text-foreground/90 text-left">
+            <p className="text-[16px] md:text-[18px] text-foreground/90 text-left leading-relaxed">
               I'm currently pursuing a Master's Degree in Computer Science at
               the Technical University of Eindhoven. I'm interested in the
               intersection of systems architecture and machine learning. I have
@@ -24,7 +24,7 @@ function Home() {
               the Birla Institute of Technology and Science (BITS), Pilani.
             </p>
 
-            <p className="text-[18px] text-foreground/90 text-left">
+            <p className="text-[16px] md:text-[18px] text-foreground/90 text-left leading-relaxed">
               You can view some of my personal projects in the projects section.
               I also write from time to time - if you're interested in reading
               some of my work, check out the blog! I'm always looking for new
