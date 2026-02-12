@@ -12,9 +12,9 @@ function Header() {
         <Text
           className="cursor-pointer font-bold text-[20px]"
           onClick={() => navigate("/")}
-          
         >
-          Raghav Mangalapalli
+          <span className="hidden sm:inline">Raghav Mangalapalli</span>
+          <span className="inline sm:hidden">RM</span>
         </Text>
       </div>
 

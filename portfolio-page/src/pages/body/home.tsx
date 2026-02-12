@@ -25,7 +25,7 @@ function Home() {
             </p>
 
             <p className="text-[16px] md:text-[18px] text-foreground/90 text-left leading-relaxed">
-              You can view some of my personal projects in the projects section.
+              You can view some of my personal projects on my GitHub.
               I also write from time to time - if you're interested in reading
               some of my work, check out the blog! I'm always looking for new
               opportunities. If you'd like to get in touch with me, you can find
