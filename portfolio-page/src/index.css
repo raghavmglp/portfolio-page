@@ -1,283 +1,111 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import url("https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&display=swap");
-
-@custom-variant dark (&:is(.dark *));
-
-@theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-}
-
 :root {
-  --radius: 0rem; /* Cargo/Portfolio styles usually favor sharp corners */
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
-  /* LIGHT MODE: Art Gallery White */
-  --background: oklch(1 0 0); /* Pure White */
-  --foreground: oklch(
-    0.18 0.01 20
-  ); /* Off-black/Ink (rgba(0,0,0,0.84) equivalent) */
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.01 20);
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.01 20);
-
-  /* Primary: The "Bold Link" or "Solid Button" Look */
-  --primary: oklch(0.18 0.01 20);
-  --primary-foreground: oklch(1 0 0);
-
-  /* Secondary: Very light grey for subtle backgrounds */
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.18 0.01 20);
-
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.5 0 0); /* Subtle metadata text */
-
-  --accent: oklch(0.95 0 0);
-  --accent-foreground: oklch(0.18 0.01 20);
-
-  --destructive: oklch(0.5 0.15 25);
-
-  /* Borders in these styles are often either non-existent or very thin/light */
-  --border: oklch(0.9 0 0);
-  --input: oklch(0.9 0 0);
-  --ring: oklch(0.18 0.01 20);
-
-  /* Minimalist Chart Palette */
-  --chart-1: oklch(0.4 0 0); /* Black */
-  --chart-2: oklch(0.6 0 0); /* Grey */
-  --chart-3: oklch(0.7 0.05 20); /* Warm Grey */
-  --chart-4: oklch(0.8 0 0); /* Light Grey */
-  --chart-5: oklch(0.9 0 0); /* Very Light Grey */
-
-  --sidebar: oklch(0.99 0 0);
-  --sidebar-foreground: oklch(0.18 0.01 20);
-  --sidebar-primary: oklch(0.18 0.01 20);
-  --sidebar-border: oklch(0.95 0 0);
-}
-
-.dark {
-  /* DARK MODE: Deep Charcoal/Zinc */
-  /* Moved away from 'stone' to 'zinc' for a more modern, less muddy feel */
-  --background: oklch(0.18 0.015 260);
-  --foreground: oklch(0.95 0.01 260);
-
-  --card: oklch(0.22 0.015 260);
-  --card-foreground: oklch(0.95 0.01 260);
-
-  --popover: oklch(0.18 0.015 260);
-  --popover-foreground: oklch(0.95 0.01 260);
-
-  /* Soft Silver/White Primary */
-  --primary: oklch(0.95 0.01 260);
-  --primary-foreground: oklch(0.18 0.015 260);
-
-  --secondary: oklch(0.28 0.015 260);
-  --secondary-foreground: oklch(0.95 0.01 260);
-
-  --muted: oklch(0.28 0.015 260);
-  --muted-foreground: oklch(0.65 0.015 260);
-
-  --accent: oklch(0.28 0.015 260);
-  --accent-foreground: oklch(0.95 0.01 260);
-
-  --destructive: oklch(0.5 0.15 25);
-
-  --border: oklch(0.28 0.015 260);
-  --input: oklch(0.28 0.015 260);
-  --ring: oklch(0.7 0.015 260);
-
-  --sidebar: oklch(0.16 0.015 260);
-  --sidebar-foreground: oklch(0.95 0.01 260);
-  --sidebar-primary: oklch(0.95 0.01 260);
-  --sidebar-border: oklch(0.25 0.015 260);
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
+  @media (max-width: 1024px) {
+    font-size: 16px;
   }
 }
 
-/* --- 100: XXThin --- */
-@font-face {
-  font-family: "Neue Haas Grotesk Display";
-  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayXXThin.ttf")
-    format("truetype");
-  font-weight: 100;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Neue Haas Grotesk Display";
-  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayXXThinItalic.ttf")
-    format("truetype");
-  font-weight: 100;
-  font-style: italic;
-}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
 
-/* --- 200: XThin --- */
-@font-face {
-  font-family: "Neue Haas Grotesk Display";
-  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayXThin.ttf")
-    format("truetype");
-  font-weight: 200;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Neue Haas Grotesk Display";
-  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayXThinItalic.ttf")
-    format("truetype");
-  font-weight: 200;
-  font-style: italic;
-}
-
-/* --- 300: Thin --- */
-@font-face {
-  font-family: "Neue Haas Grotesk Display";
-  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayThin.ttf")
-    format("truetype");
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Neue Haas Grotesk Display";
-  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayThinItalic.ttf")
-    format("truetype");
-  font-weight: 300;
-  font-style: italic;
-}
-
-/* --- 350: Light (Custom Weight) --- */
-@font-face {
-  font-family: "Neue Haas Grotesk Display";
-  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayLight.ttf")
-    format("truetype");
-  font-weight: 350;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Neue Haas Grotesk Display";
-  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayLightItalic.ttf")
-    format("truetype");
-  font-weight: 350;
-  font-style: italic;
-}
-
-/* --- 400: Roman (Regular) --- */
-@font-face {
-  font-family: "Neue Haas Grotesk Display";
-  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayRoman.ttf")
-    format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Neue Haas Grotesk Display";
-  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayRomanItalic.ttf")
-    format("truetype");
-  font-weight: 400;
-  font-style: italic;
-}
-
-/* --- 500: Medium --- */
-@font-face {
-  font-family: "Neue Haas Grotesk Display";
-  /* Keeping filename as "Mediu.ttf" based on your list */
-  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayMediu.ttf")
-    format("truetype");
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Neue Haas Grotesk Display";
-  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayMediumItalic.ttf")
-    format("truetype");
-  font-weight: 500;
-  font-style: italic;
-}
-
-/* --- 700: Bold --- */
-@font-face {
-  font-family: "Neue Haas Grotesk Display";
-  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayBold.ttf")
-    format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Neue Haas Grotesk Display";
-  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayBoldItalic.ttf")
-    format("truetype");
-  font-weight: 700;
-  font-style: italic;
-}
-
-/* --- 900: Black --- */
-@font-face {
-  font-family: "Neue Haas Grotesk Display";
-  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayBlack.ttf")
-    format("truetype");
-  font-weight: 900;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Neue Haas Grotesk Display";
-  src: url("./assets/fonts/neue-haas-grotesk-display/NeueHaasDisplayBlackItalic.ttf")
-    format("truetype");
-  font-weight: 900;
-  font-style: italic;
-}
-
-.font-neuton {
-  font-family: "Neuton", serif;
-}
-
-.prose {
-  font-size: 1.25rem;
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
 }
 
 body {
-  font-family: "Neue Haas Grotesk Display", Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  margin: 0;
+}
+
+#root {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
 }
