@@ -73,7 +73,7 @@ export default function TimelineComponent() {
                 {entry.icon}
               </Timeline.Indicator>
             </Timeline.Connector>
-            <Timeline.Content pb={8}>
+            <Timeline.Content pb={14}>
               <Timeline.Title>{entry.organization}</Timeline.Title>
               <Timeline.Description>{entry.title} · <strong>{entry.period}</strong></Timeline.Description>
               {/* <Wrap gap={1} mt={2}>
