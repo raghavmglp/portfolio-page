@@ -1,5 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+
+localStorage.removeItem('theme')
 import '@fontsource/dm-mono'
 import '@fontsource/nunito'
 import './index.css'
