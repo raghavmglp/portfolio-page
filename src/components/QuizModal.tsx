@@ -81,8 +81,6 @@ export default function QuizModal() {
   const [cardKey, setCardKey] = useState(0)
 
   const card = QUIZ_CARDS.find(c => c.id === currentId)!
-  const remaining = QUIZ_CARDS.length - seen.size
-
   function handleOpen(open: boolean) {
     if (!open) return
     const newSeen = new Set(seen).add(currentId)
