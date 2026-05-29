@@ -1,4 +1,4 @@
-import { Box, Image, Tag, Wrap, Timeline } from "@chakra-ui/react";
+import { Box, Image, Timeline } from "@chakra-ui/react";
 import { FaAmazon } from "react-icons/fa";
 
 import bitsLogo from "../assets/BITS_Pilani-Logo.svg";
