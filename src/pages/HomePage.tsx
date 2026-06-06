@@ -14,7 +14,7 @@ import {
 import { LuArrowUpRight, LuMail } from "react-icons/lu";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import TimelineComponent from "../components/Timeline";
-import QuizModal from "../components/QuizModal";
+// import QuizModal from "../components/QuizModal";
 import { useRef, useState, useEffect } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
@@ -174,19 +174,20 @@ export default function HomePage() {
       </Flex>
       <Separator my={6} size={"lg"} />
       <Text color="fg.muted" mb={6}>
-        You can view some of my personal projects in the projects tab, and I
-        also maintain a blog where I post some of my writings from time to time.
-        Outside of work I enjoy quizzing and reading books, particularly sci-fi.
-        I used to be the president of the BITS Pilani Debate Club and part of
-        the Ultimate Frisbee Team.
+        You can view some of my personal projects in the projects tab. Outside
+        of work I enjoy quizzing and reading books, particularly sci-fi. I used
+        to be the president of the BITS Pilani Debate Club and part of the
+        Ultimate Frisbee Team.
       </Text>
       <Flex direction="column" align="center" mt={6} mb={6}>
         <Image src={berlinPhoto} alt="Berlin, 2026" w="35%" />
-        <Text fontSize="xs" color="fg.muted" mt={2}>Berlin, 2026</Text>
+        <Text fontSize="xs" color="fg.muted" mt={2}>
+          Berlin, 2026
+        </Text>
       </Flex>
-      <Flex justify="center" mb={10}>
+      {/* <Flex justify="center" mb={10}>
         <QuizModal />
-      </Flex>
+      </Flex> */}
     </Box>
   );
 }
