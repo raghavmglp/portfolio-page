@@ -2,6 +2,7 @@ import { Box, Image, Timeline } from "@chakra-ui/react";
 import { FaAmazon } from "react-icons/fa";
 
 import bitsLogo from "../assets/BITS_Pilani-Logo.svg";
+import asmlLogo from "../assets/asml_logo.svg";
 import tueLogo from "../assets/tue.png";
 import eltropyLogo from "../assets/eltropy_logo.jpeg";
 
@@ -18,6 +19,13 @@ const logoImg = (src: string) => (
 );
 
 const ENTRIES: TimelineEntry[] = [
+  {
+    icon: logoImg(asmlLogo),
+    title: "Data Science Intern",
+    organization: "ASML",
+    period: "Aug 2026 – Present",
+    description: "",
+  },
   {
     icon: logoImg(tueLogo),
     title: "MSc Computer Science & Engineering",

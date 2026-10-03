@@ -1,6 +1,7 @@
 import { Box, Separator } from "@chakra-ui/react";
 import "./App.css";
 import NavBar from "./components/NavBar";
+// import FontSwitcher from "./components/FontSwitcher";
 import HomePage from "./pages/HomePage";
 import { useNavStore } from "./store/navStore";
 
@@ -28,6 +29,8 @@ function App() {
         <Separator size={"lg"} />
         {activeTab === "home" && <HomePage />}
       </Box>
+      {/* Temporary font comparison control; uncomment to restore it. */}
+      {/* <FontSwitcher /> */}
     </>
   );
 }

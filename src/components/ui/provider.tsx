@@ -6,8 +6,7 @@ import {
   type ColorModeProviderProps,
 } from "./color-mode"
 
-// ← swap this to "'DM Mono', monospace" to revert
-const FONT = "'DM Mono', monospace"
+const FONT = "var(--portfolio-font, Geist, sans-serif)"
 
 const system = createSystem(defaultConfig, {
   theme: {
@@ -15,7 +14,7 @@ const system = createSystem(defaultConfig, {
       fonts: {
         heading: { value: FONT },
         body:    { value: FONT },
-        mono:    { value: "'DM Mono', monospace" },
+        mono:    { value: FONT },
       }
     },
     semanticTokens: {
