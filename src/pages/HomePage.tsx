@@ -174,7 +174,7 @@ export default function HomePage() {
       </Flex>
       <Separator my={6} size={"lg"} />
       <Text color="fg.muted" mb={6}>
-        You can view some of my personal projects in the projects tab. Outside
+        You can view some of my personal projects on my GitHub profile. Outside
         of work I enjoy quizzing and reading books, particularly sci-fi. I used
         to be the president of the BITS Pilani Debate Club and part of the
         Ultimate Frisbee Team.
