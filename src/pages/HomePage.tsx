@@ -7,12 +7,16 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { LuFileText, LuMail } from "react-icons/lu";
+import { LuBookOpen, LuFileText, LuMail } from "react-icons/lu";
 import { Document, Page, pdfjs } from "react-pdf";
+import { Link } from "react-router-dom";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 
+import mastheadPortrait from "../assets/helsinki-portrait.jpg";
 import resume from "../assets/Raghav_Mangalapalli_Resume_2026.pdf";
+import DarkBackgroundPicker from "../components/DarkBackgroundPicker";
+import GitHubProjects from "../components/GitHubProjects";
 import TimelineComponent from "../components/Timeline";
 import { ColorModeButton } from "../components/ui/color-mode";
 
@@ -22,6 +26,12 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 ).toString();
 
 const LINKS = [
+  {
+    label: "Blog",
+    href: "/blog",
+    icon: <LuBookOpen aria-hidden="true" />,
+    internal: true,
+  },
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/raghav-mangalapalli/",
@@ -100,7 +110,7 @@ function ResumeButton() {
   }
 
   return (
-    <Dialog.Root motionPreset="slide-in-bottom">
+    <Dialog.Root placement="top" motionPreset="slide-in-top">
       <Dialog.Trigger asChild>
         <button className="link-button" type="button">
           <LuFileText aria-hidden="true" />
@@ -112,7 +122,8 @@ function ResumeButton() {
         <Dialog.Positioner>
           <Dialog.Content
             maxW="4xl"
-            h="88vh"
+            h="100dvh"
+            my={0}
             bg="var(--surface)"
             color="var(--text)"
             border="1px solid var(--line)"
@@ -127,12 +138,35 @@ function ResumeButton() {
 }
 
 export default function HomePage() {
+  const [isPortraitVisible, setIsPortraitVisible] = useState(false);
+
   return (
-    <main id="top" className="site-shell">
-      <header className="masthead reveal reveal--one">
-        <div className="masthead__mark" aria-hidden="true">
-          RM
-        </div>
+    <>
+      <main id="top" className="site-shell">
+      <header
+        className="masthead reveal reveal--one"
+        data-portrait-visible={isPortraitVisible}
+      >
+        <button
+          className="masthead__mark"
+          data-flipped={isPortraitVisible}
+          type="button"
+          aria-label={
+            isPortraitVisible
+              ? "Show Raghav's initials"
+              : "Show Raghav's portrait"
+          }
+          onClick={() => setIsPortraitVisible((visible) => !visible)}
+        >
+          <span className="masthead__mark-inner">
+            <span className="masthead__mark-face masthead__mark-front">
+              RM
+            </span>
+            <span className="masthead__mark-face masthead__mark-back">
+              <img src={mastheadPortrait} alt="" />
+            </span>
+          </span>
+        </button>
         <div className="masthead__identity">
           <h1>Raghav Mangalapalli</h1>
           <p>TU Eindhoven, BITS, Pilani | ASML, Amazon, Eltropy.</p>
@@ -167,43 +201,40 @@ export default function HomePage() {
 
       <section
         className="editorial-section reveal reveal--three"
-        aria-labelledby="experience-title"
+        aria-labelledby="education-title"
       >
         <div className="section-label">
           <span>02</span>
-          <h2 id="experience-title">Experience & education</h2>
+          <h2 id="education-title">Education</h2>
         </div>
         <div className="section-content">
-          <TimelineComponent />
+          <TimelineComponent category="education" />
         </div>
       </section>
 
-      <section className="editorial-section" aria-labelledby="links-title">
+      <section className="editorial-section" aria-labelledby="experience-title">
         <div className="section-label">
           <span>03</span>
-          <h2 id="links-title">Links</h2>
+          <h2 id="experience-title">Experience</h2>
         </div>
-        <div className="section-content link-buttons">
-          {LINKS.map((link) => (
-            <a
-              className="link-button"
-              href={link.href}
-              key={link.label}
-              {...(link.href.startsWith("http")
-                ? { target: "_blank", rel: "noopener noreferrer" }
-                : {})}
-            >
-              {link.icon}
-              <span>{link.label}</span>
-            </a>
-          ))}
-          <ResumeButton />
+        <div className="section-content">
+          <TimelineComponent category="experience" />
+        </div>
+      </section>
+
+      <section className="editorial-section" aria-labelledby="projects-title">
+        <div className="section-label">
+          <span>04</span>
+          <h2 id="projects-title">Projects</h2>
+        </div>
+        <div className="section-content">
+          <GitHubProjects />
         </div>
       </section>
 
       <section className="editorial-section" aria-labelledby="outside-title">
         <div className="section-label">
-          <span>04</span>
+          <span>05</span>
           <h2 id="outside-title">Outside work</h2>
         </div>
         <div className="section-content">
@@ -225,14 +256,47 @@ export default function HomePage() {
               reading
             </a>
             —especially science fiction. I was president of the BITS Pilani
-            Debate Club and played on the university’s Ultimate Frisbee team.
+            Debate Club and played on the university’s Ultimate Frisbee team. I
+            am (unfortunately) a fan of Tottenham Hotspur Football Club.
           </p>
+        </div>
+      </section>
+
+      <section className="editorial-section" aria-labelledby="links-title">
+        <div className="section-label">
+          <span>06</span>
+          <h2 id="links-title">Links</h2>
+        </div>
+        <div className="section-content link-buttons">
+          {LINKS.map((link) =>
+            link.internal ? (
+              <Link className="link-button" to={link.href} key={link.label}>
+                {link.icon}
+                <span>{link.label}</span>
+              </Link>
+            ) : (
+              <a
+                className="link-button"
+                href={link.href}
+                key={link.label}
+                {...(link.href.startsWith("http")
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+              >
+                {link.icon}
+                <span>{link.label}</span>
+              </a>
+            ),
+          )}
+          <ResumeButton />
         </div>
       </section>
 
       <footer className="site-footer">
         <a href="#top">Back to top ↑</a>
       </footer>
-    </main>
+      </main>
+      <DarkBackgroundPicker />
+    </>
   );
 }

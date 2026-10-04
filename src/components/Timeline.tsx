@@ -4,73 +4,108 @@ import bitsLogo from "../assets/BITS_Pilani-Logo.svg";
 import eltropyLogo from "../assets/eltropy_logo.jpeg";
 import tueLogo from "../assets/tue.png";
 
+interface TimelineRole {
+  title: string;
+  period?: string;
+  description: string;
+}
+
 interface TimelineEntry {
+  category: "experience" | "education";
   logo: string;
   fullBleedLogo?: boolean;
-  title: string;
   organization: string;
   period: string;
-  description: string;
+  roles: TimelineRole[];
 }
 
 const ENTRIES: TimelineEntry[] = [
   {
+    category: "experience",
     logo: asmlLogo,
     fullBleedLogo: true,
-    title: "Data Science Intern",
     organization: "ASML",
     period: "Aug 2026 — Present",
-    description: "Data science · Machine learning",
+    roles: [
+      {
+        title: "Data Science Intern",
+        description: "Data science · Machine learning",
+      },
+    ],
   },
   {
+    category: "education",
     logo: tueLogo,
-    title: "MSc Computer Science & Engineering",
     organization: "Eindhoven University of Technology",
     period: "Sep 2025 — Present",
-    description:
-      "Data-intensive systems · Distributed systems · Big Data Management · ML engineering · Deep Learning",
+    roles: [
+      {
+        title: "MSc Computer Science & Engineering",
+        description:
+          "Data-intensive systems · Distributed systems · Big Data Management · ML engineering · Deep Learning",
+      },
+    ],
   },
   {
+    category: "experience",
     logo: eltropyLogo,
     fullBleedLogo: true,
-    title: "Software Engineer, AI Team",
     organization: "Eltropy",
-    period: "Jul 2024 — Jul 2025",
-    description: "Golang · MongoDB · React · TypeScript · AWS S3 · Temporal",
+    period: "Jan 2024 — Jul 2025",
+    roles: [
+      {
+        title: "Software Engineer, AI Team",
+        period: "Jul 2024 — Jul 2025",
+        description:
+          "Golang · MongoDB · React · TypeScript · AWS S3 · Temporal",
+      },
+      {
+        title: "Software Engineer Intern, AI Team",
+        period: "Jan 2024 — Jun 2024",
+        description: "React · TypeScript",
+      },
+    ],
   },
   {
-    logo: eltropyLogo,
-    fullBleedLogo: true,
-    title: "Software Engineer Intern, AI Team",
-    organization: "Eltropy",
-    period: "Jan 2024 — Jun 2024",
-    description: "React · TypeScript",
-  },
-  {
+    category: "experience",
     logo: amazonLogo,
     fullBleedLogo: true,
-    title: "SDE Intern, Retail Business Services",
     organization: "Amazon",
     period: "Jun 2023 — Dec 2023",
-    description: "Java · AWS Lambda · SQS · SNS · QuickSight",
+    roles: [
+      {
+        title: "SDE Intern, Retail Business Services",
+        description: "Java · AWS Lambda · SQS · SNS · QuickSight",
+      },
+    ],
   },
   {
+    category: "education",
     logo: bitsLogo,
-    title: "BE Computer Science & MSc Economics",
     organization: "BITS Pilani",
     period: "Aug 2019 — Jul 2024",
-    description: "Computer science · Economics",
+    roles: [
+      {
+        title: "BE Computer Science & MSc Economics",
+        description: "Computer science · Economics",
+      },
+    ],
   },
 ];
 
-export default function TimelineComponent() {
+interface TimelineComponentProps {
+  category: TimelineEntry["category"];
+}
+
+export default function TimelineComponent({
+  category,
+}: TimelineComponentProps) {
+  const entries = ENTRIES.filter((entry) => entry.category === category);
+
   return (
     <div className="career-list">
-      {ENTRIES.map((entry) => (
-        <article
-          className="career-row"
-          key={`${entry.organization}-${entry.title}`}
-        >
+      {entries.map((entry) => (
+        <article className="career-row" key={entry.organization}>
           <p className="career-period">{entry.period}</p>
           <div className="career-detail">
             <div className="career-heading">
@@ -81,10 +116,29 @@ export default function TimelineComponent() {
               </div>
               <div>
                 <h3>{entry.organization}</h3>
-                <p className="career-role">{entry.title}</p>
+                {entry.roles.length === 1 && (
+                  <p className="career-role">{entry.roles[0].title}</p>
+                )}
               </div>
             </div>
-            <p className="career-stack">{entry.description}</p>
+
+            {entry.roles.length === 1 ? (
+              <p className="career-stack">{entry.roles[0].description}</p>
+            ) : (
+              <div className="career-progression">
+                {entry.roles.map((role) => (
+                  <div className="career-progression__role" key={role.title}>
+                    <p className="career-progression__title">{role.title}</p>
+                    {role.period && (
+                      <p className="career-progression__period">{role.period}</p>
+                    )}
+                    <p className="career-progression__stack">
+                      {role.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </article>
       ))}
