@@ -230,7 +230,6 @@ export default function HomePage() {
             <span>04</span>
             <h2 id="projects-title">Projects</h2>
           </div>
-          fblo
           <div className="section-content">
             <GitHubProjects />
           </div>
